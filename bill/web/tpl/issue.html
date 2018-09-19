@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>发布新票据</title>
+</head>
+<body>
+
+<div>
+    当前登录用户: {{.Cuser.Acct}}
+</div>
+<br/><br/>
+{{if .Flag}}
+<div>
+    {{.Msg}}
+</div>
+{{end}}
+<br/><br/>
+<div>
+    <a href="/findBills">我的票据</a>
+    <a href="#">待签收票据</a>
+</div>
+
+<br/><br/>
+<div>
+    <form action="/issue" method="post">
+        票据号码: <input type="text" name="BillInfoID"/><br/><br/>
+        票据金额: <input type="text" name="BillInfoAmt"/><br/><br/>
+        票据类型: <input type="text" name="BillInfoType"/><br/><br/>
+
+        出票日期: <input type="text" name="BillInfoIsseDate"/><br/><br/>
+        到期日期: <input type="text" name="BillInfoDueDate"/><br/><br/>
+
+        出票人名称: <input type="text" name="DrwrAcct"/><br/><br/>
+        出票人证件号码: <input type="text" name="DrwrCmID"/><br/><br/>
+
+        承兑人名称: <input type="text" name="AccptrAcct"/><br/><br/>
+        承兑人证件号码: <input type="text" name="AccptrCmID"/><br/><br/>
+
+        收款人名称: <input type="text" name="PyeeAcct"/><br/><br/>
+        收款人证件号码: <input type="text" name="PyeeCmID"/><br/><br/>
+
+        持票人名称: <input type="text" name="HoldrAcct" value="{{.Cuser.Acct}}"/><br/><br/>
+        持票人证件号码: <input type="text" name="HoldrCmID" value="{{.Cuser.CmId}}"/><br/><br/>
+
+        <input type="submit" value="发布"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" value="重置"/>
+    </form>
+</div>
+</body>
+</html>
